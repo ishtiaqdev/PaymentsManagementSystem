@@ -1,0 +1,31 @@
+{
+  "name": "paymentsmanagementsystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "build": "ng build --prod",
+    "test": "ng test",
+    "e2e": "ng e2e"
+  },
+  "author": "Muhammad Ishtiaq",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "handlebars-layouts": "^3.1.4",
+    "hbs": "~4.0.6",
+    "mongoose": "^5.7.5",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.3"
+  },
+  "devDependencies": {
+    "handlebars": "^4.7.6"
+  }
+}

@@ -1,0 +1,36 @@
+<h3>All Contracts List</h3>
+<div class="text-success">{{success}}</div>
+<div style="border-bottom:  1px solid; padding-bottom: 20px">
+      <form action="contract/list" method="POST">
+            Contract Id:
+            <input type="text" class="form-control list-search-field" placeholder="Enter Contract Id" name="contractId"/>
+            <div class="text-danger list-search-field">{{item.contractIdError}}</div>
+            <button name="save" class="btn btn-secondary" type="submit">Search</button>
+            <a class="btn btn-secondary" href="/contract/list"><i class="fa fa-list-alt"></i> View All Contracts</a>
+    </form>
+</div>
+<br>
+<h3 style="display: inline-block;width: 89%;"><a class="btn btn-secondary" href="/contract/create"><i class="fa fa-plus"></i> Create New</a></h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Contract ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this._id}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.description}}</td>
+            <td>
+                <a href="/contract/update/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/contract/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

@@ -1,0 +1,24 @@
+<h3>{{title}}</h3>
+<div class="text-danger">{{insertUpdateError}}</div>
+<form action="/contract/create" method="POST">
+    <input type="hidden" name="id" value="{{contract._id}}">
+    <div class="form-group">
+        <label>Contract Id <span style="color: red;">*</span></label>
+        <input type="text" class="form-control" name="_id" placeholder="Contract Id" value="{{contract._id}}">
+        <div class="text-danger">{{contract.idError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Name <span style="color: red;">*</span></label>
+        <input type="text" class="form-control" name="name" placeholder="Name" value="{{contract.name}}">
+        <div class="text-danger">{{contract.nameError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Description <span style="color: red;">*</span></label>
+        <input type="text" class="form-control" name="description" placeholder="Description" value="{{contract.description}}">
+        <div class="text-danger">{{contract.descriptionError}}</div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/contract/list"><i class="fa fa-list-alt"></i> View All Contracts</a>
+    </div>
+</form>

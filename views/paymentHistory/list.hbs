@@ -1,0 +1,55 @@
+<h3>All Payment Histories List</h3>
+<div class="text-success">{{success}}</div>
+<div style="border-bottom:  1px solid; padding-bottom: 20px">
+      <form action="paymenthistory/list" method="POST">
+            Contract Id:
+            <input type="text" class="form-control list-search-field" placeholder="Enter Contract Id" name="contractId"/>
+            <div class="text-danger list-search-field">{{item.contractIdError}}</div>
+            Start Date:
+            <input type="text" class="form-control list-search-field" name="startDate" placeholder="Format 2020-04-29 13:12:10">
+            <div class="text-danger list-search-field">{{item.startDateError}}</div>
+            End Date:
+            <input type="text" class="form-control list-search-field" name="endDate" placeholder="Format 2020-04-29 13:12:10">
+            <div class="text-danger list-search-field">{{item.endDateError}}</div>
+
+            <button name="save" class="btn btn-secondary" type="submit">Search</button>
+            <a class="btn btn-secondary" href="/paymenthistory/list"><i class="fa fa-list-alt"></i> View All Payments</a>
+    </form>
+</div>
+<br>
+<h3 style="display: inline-block;width: 89%;"><a class="btn btn-secondary" href="/paymenthistory/create"><i class="fa fa-plus"></i> Create New</a></h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Payment ID</th>
+            <th>Contract ID</th>
+            <th>Description</th>
+            <th>Value</th>
+            <th>Time</th>
+            <th>Is Imported</th>
+            <th>Create At</th>
+            <th>Updated At</th>
+            <th>Is Deleted</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this._id}}</td>
+            <td>{{this.contractId}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.value}}</td>
+            <td>{{this.time}}</td>
+            <td>{{this.isImported}}</td>
+            <td>{{this.createdAt}}</td>
+            <td>{{this.updatedAt}}</td>
+            <td>{{this.isDeleted}}</td>
+            <td>
+                <a href="/paymenthistory/update/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/paymenthistory/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
